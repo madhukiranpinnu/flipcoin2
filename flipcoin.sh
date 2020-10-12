@@ -174,3 +174,24 @@ echo " percentage of tail_tail_tail combination:" $percentageofTailTailTail"%"
 
 
 }
+singletcombination
+doubletcombination
+tripletcombination
+
+#sort
+variable=${coin[@]}
+for values in $variable
+do
+	array[count]=$values
+	count=$(( $count+1 ))
+done
+echo " array values are:" ${array[@]}
+
+sort=`echo ${array[@]} | awk 'BEGIN{RS=" ";} {print $1}' | sort -n`
+
+counter=0
+for values in $sort
+do
+sortedarray[((counter++))]="$values"
+done
+echo "winning combination value:" ${sortedarray[${#sortedarray[@]}-1]}
